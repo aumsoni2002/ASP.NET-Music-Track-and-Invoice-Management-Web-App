@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="appTitle">
+        <h1 id="appTitle">Assignment 2 - Aum Soni</h1>
+        <p class="lead">The application is focused on displaying and managing associated data with one-to-many relations, specifically working with Track and Invoice objects, including features like sorting, filtering, and detailed views.</p>
+    </section>
+
+    <div class="row mt-5">
+        <section class="col-md-6" aria-labelledby="whatILearned">
+            <h2 id="whatILearned">I learned ...</h2>
+            <p>While creating this application, I learned the importance of handling associated data efficiently through LINQ sorting and filtering, which greatly enhances the user experience. The Include() method enabled me to join related entities seamlessly, while the flattening method allowed for the clear display of data from other classes. Automapper simplified the mapping process, making it easier to showcase and manage information. Additionally, understanding the composed properties pattern name helped in designing clean and structured view models.</p>
+        </section>
+        <section class="col-md-6" aria-labelledby="whatIStruggledWith">
+            <h2 id="whatIStruggledWith">I struggled with ...</h2>
+            <p>Creating this application presented several challenges. Initially, I was confused about how entities were associated with each other, and I started creating View Models for Album, Artist, and MediaType, thinking I needed to establish relationships with [Key] properties and IEnumerable in different classes. However, after carefully reviewing the instructions multiple times, I realized that I could display data from another class using the flattening method. The instructions were somewhat unclear, which made problem-solving difficult, but once I completed the project independently, it turned out to be an enjoyable learning experience. The trickiest part was determining where to place the composed properties and the Include() method, but overall, it was a fun experience.</p>
+        </section>
+    </div>
+</main>

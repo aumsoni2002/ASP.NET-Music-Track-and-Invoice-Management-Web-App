@@ -1,0 +1,227 @@
+﻿@model AAS2237A2.Models.InvoiceWithDetailViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details for Invoice #@Model.InvoiceId</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Customer Info
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerId) <br />
+            @Html.DisplayFor(model => model.CustomerFirstName)
+            @Html.DisplayFor(model => model.CustomerLastName)<br />
+            @Html.DisplayFor(model => model.CustomerState),
+            @Html.DisplayFor(model => model.CustomerCountry)
+
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            Billing Address
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BillingAddress) <br />
+            @Html.DisplayFor(model => model.BillingCity),
+            @Html.DisplayFor(model => model.BillingState)<br />
+            @Html.DisplayFor(model => model.BillingCountry),
+            @Html.DisplayFor(model => model.BillingPostalCode)
+
+        </dd>
+    </dl>
+
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            Sales Rep
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerEmployeeFirstName) 
+            @Html.DisplayFor(model => model.CustomerEmployeeLastName)<br />
+            @Html.DisplayFor(model => model.InvoiceDate)<br />
+            @Html.DisplayFor(model => model.Total)
+
+        </dd>
+    </dl>
+
+    <h4>Line Items</h4>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.InvoiceLines.First().InvoiceLineId)</th>
+                <th>@Html.DisplayNameFor(model => model.InvoiceLines.First().Track)</th>
+                <th>@Html.DisplayNameFor(model => model.InvoiceLines.First().UnitPrice)</th>
+                <th>@Html.DisplayNameFor(model => model.InvoiceLines.First().Quantity)</th>
+                <th>@Html.DisplayNameFor(model => model.InvoiceLines.First().LinePrice)</th>
+            </tr>
+
+            @foreach (var line in Model.InvoiceLines)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => line.InvoiceLineId)</td>
+                    <td>
+                        <dl>
+                            <dt class="d-inline-block">@Html.DisplayNameFor(model => line.TrackName):</dt>
+                            <dd class="d-inline-block">@Html.DisplayFor(model => line.TrackName)</dd>
+
+                            <br />
+
+                            <dt class="d-inline-block">@Html.DisplayNameFor(model => line.TrackAlbumTitle):</dt>
+                            <dd class="d-inline-block">@Html.DisplayFor(model => line.TrackAlbumTitle)</dd>
+
+                            <br />
+
+                            <dt class="d-inline-block">@Html.DisplayNameFor(model => line.TrackAlbumArtistName):</dt>
+                            <dd class="d-inline-block">@Html.DisplayFor(model => line.TrackAlbumArtistName)</dd>
+
+                            <br />
+
+                            <dt class="d-inline-block">@Html.DisplayNameFor(model => line.TrackComposer):</dt>
+                            <dd class="d-inline-block">@Html.DisplayFor(model => line.TrackComposer)</dd>
+
+                            <br />
+
+                            <dt class="d-inline-block">@Html.DisplayNameFor(model => line.TrackGenreName):</dt>
+                            <dd class="d-inline-block">@Html.DisplayFor(model => line.TrackGenreName)</dd>
+
+                            <br />
+
+                            <dt class="d-inline-block">@Html.DisplayNameFor(model => line.TrackMediaTypeName):</dt>
+                            <dd class="d-inline-block">@Html.DisplayFor(model => line.TrackMediaTypeName)</dd>
+
+                        </dl>
+                    </td>
+                    <td>@Html.DisplayFor(model => line.UnitPrice)</td>
+                    <td>@Html.DisplayFor(model => line.Quantity)</td>
+                    <td>@Html.DisplayFor(model => line.LinePrice)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @*<dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomerId)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.InvoiceDate)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.InvoiceDate)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BillingAddress)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BillingAddress)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BillingCity)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BillingCity)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BillingState)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BillingState)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BillingCountry)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BillingCountry)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BillingPostalCode)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BillingPostalCode)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Total)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Total)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomerFirstName)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomerFirstName)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomerLastName)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomerLastName)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomerState)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomerState)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomerCountry)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomerCountry)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomerEmployeeFirstName)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomerEmployeeFirstName)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomerEmployeeLastName)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomerEmployeeLastName)
+            </dd>
+
+        </dl>*@
+
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
